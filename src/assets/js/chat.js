@@ -48,7 +48,10 @@ function handleSend() {
     insertBubble("user", tempText);
 
     //Loading Text
-    insertBubble("bot", '', true)
+    setTimeout(() => {
+        insertBubble("bot", "", true)
+    }, 1000);
+    
   }
 }
 
@@ -58,6 +61,13 @@ function insertBubble(who, text, isLoading) {
   p.classList.add("text-bubble", who);
   span.classList.add("text-cont", who);
   span.innerText = text;
+
+  if (isLoading === true) {
+    const loader = document.createElement("span");
+    loader.classList.add("loader")
+    span.appendChild(loader)
+  }
+
   p.appendChild(span);
 
   const msgArea = document.getElementById("msgArea");
