@@ -1,0 +1,198 @@
+@import url("global.css");
+
+#overall-chat-box {
+  overflow: hidden;
+  position: relative;
+  z-index: 2000;
+  display: block;
+  height: 0; /* 500px */
+  width: 0; /* 250px */
+  border-radius: 10px;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+
+  color: white;
+
+  background-color: #444444;
+  box-shadow: 5px 5px #00000080;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.chatbox-activated {
+  height: 500px !important;
+  width: 250px !important;
+}
+
+.chat-open-button {
+  background-color: #555;
+  /* border: solid 3px #7c7c7c; */
+  box-shadow: 5px 5px #00000080;
+
+  color: white;
+  padding: 30px;
+
+  cursor: pointer;
+  opacity: 0.8;
+
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+
+  border-radius: 50%;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.chat-close-button {
+  display: inherit;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Where user types */
+div.chat-bar-input-block {
+  position: absolute;
+  bottom: 0;
+  margin-top: auto;
+  display: flex;
+  width: 100%;
+
+  padding-top: "10px";
+  padding-bottom: "10px";
+  padding: 10px;
+
+  float: left;
+  box-sizing: border-box;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+input.input-box {
+  height: 100%;
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  color: #000;
+  background-color: var(--primary-color);
+  outline: none;
+  vertical-align: middle;
+}
+
+svg.send-icon {
+  margin: 0 5px 0 10px;
+  cursor: pointer;
+}
+
+/* Message history section */
+div.message-area {
+  margin-top: 40px;
+  height: 400px; /* 420 */
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  /* background-color: aqua; */
+}
+
+p.text-bubble {
+  word-break: break-all;
+  font-size: 12px;
+  color: black;
+}
+
+p.text-bubble.user {
+  text-align: right;
+  clear: both;
+}
+
+p.text-bubble.bot {
+  text-align: left;
+  clear: none;
+}
+
+span.text-cont {
+  position: relative;
+  line-height: 1.5em;
+  display: inline-block;
+  max-width: 80%;
+  margin: 5px 10px 5px 10px;
+  transition: floatup 0.5s forwards;
+}
+
+span.text-cont.user {
+  border-radius: 15px 15px 0px 15px;
+  padding: 10px;
+  background: #ffffff;
+}
+
+span.text-cont.bot {
+  border-radius: 15px 15px 15px 0px;
+  padding: 10px;
+  background: #adadad;
+}
+
+span.text-cont.bot.loading {
+  padding: 17px 30px 17px 30px !important;
+}
+
+.dot-flashing {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  /* transform: translate(-50%, -50%); */
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #7900bf;
+  color: #be82ff;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: 0.5s;
+}
+
+.dot-flashing::before,
+.dot-flashing::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #7900bf;
+  color: #be82ff;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #7900bf;
+  color: #be82ff;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+  0% {
+    background-color: #7900bf;
+  }
+  50%,
+  100% {
+    background-color: rgba(230, 128, 255, 0.2);
+  }
+}

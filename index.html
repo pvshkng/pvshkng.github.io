@@ -6,10 +6,11 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AYO! IT'S PUVISH!</title>
-    <link rel="stylesheet" href="src/assets/css/styles.css">
+    <link rel="stylesheet" href="src/assets/css/global.css">
     <link rel="stylesheet" href="src/assets/css/slider.css">
     <link rel="stylesheet" href="src/assets/css/scroller.css">
     <link rel="stylesheet" href="src/assets/css/skills.css">
+    <link rel="stylesheet" href="src/assets/css/chat.css">
   </head>
 
   <body>
@@ -42,26 +43,33 @@
           <p class="intro-text">
             Yep, I'm another self-taught developer here
 
-            — <a id="svk">SvelteKit</a>, <a id="next">Next.js</a>, <a id="solid">Solid.js</a>, <a id="stl">Streamlit</a>, and <a id="dj">Django</a> are my daily companions.
+            — <a id="svk">SvelteKit</a>, <a id="next">Next.js</a>, <a
+              id="solid">Solid.js</a>, <a id="stl">Streamlit</a>, and <a
+              id="dj">Django</a> are my daily companions.
 
-            I've worked on cloud projects using <a id="gcp-g">Google</a> <a id="gcp-c">Cloud</a> <a id="gcp-p">Platform</a> and <a id="az">Azure</a>.
+            I've worked on cloud projects using <a id="gcp-g">Google</a> <a
+              id="gcp-c">Cloud</a> <a id="gcp-p">Platform</a> and <a
+              id="az">Azure</a>.
 
-            I'm not just a pretty user-interface maker, 
-            
-            I've got some skills in API testing using <a id="pm">Postman</a>, <a id="jm">JMeter</a>, and <a id="k6">k6</a> as well.
+            I'm not just a pretty user-interface maker,
 
+            I've got some skills in API testing using <a id="pm">Postman</a>, <a
+              id="jm">JMeter</a>, and <a id="k6">k6</a> as well.
 
-            Major thanks to <a id="w3">W3Schools</a>, <a id="mdn">MDN Web Docs</a>, and of
+            Major thanks to <a id="w3">W3Schools</a>, <a id="mdn">MDN Web
+              Docs</a>, and of
             course, my best
             large-language buddy <a id="gpt">ChatGPT</a>.
 
-            By the way, this site you're admiring right now? 
-            
-            Vanilla <a id="html">HTML</a>, <a id="css">CSS</a>, and <a id="js">JS</a> all the way, because apparently,
+            By the way, this site you're admiring right now?
 
-            <a id="github">GitHub Pages</a> just wasn't ready for the awesomeness of those cool frameworks I use LOL.
+            Vanilla <a id="html">HTML</a>, <a id="css">CSS</a>, and <a
+              id="js">JS</a> all the way, because apparently,
+
+            <a id="github">GitHub Pages</a> just wasn't ready for the
+            awesomeness of those cool frameworks I use LOL.
           </p>
-          
+
         </div>
       </div>
 
@@ -72,32 +80,6 @@
         </div> -->
 
         <div class="chatbox-area">
-          <div class="message-area">
-
-            <div class="bubble">
-              <p class="hello">Hello こんにちは!</p>
-            </div>
-
-          </div>
-
-          <!-- User input area -->
-          <div class="chat-bar-input-block" onkeyup>
-            <input class="input-box"
-              bind:value={userInput}
-              id="textInput"
-              type="text"
-              name="msg"
-              placeholder="Ask me anything!!!" />
-
-            <svg
-              onclick
-              class="send-icon"
-              height="32"
-              width="32"
-              viewBox="0 0 512 512"><path
-                fill="white"
-                d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z" /></svg>
-          </div>
 
         </div>
 
@@ -163,6 +145,63 @@
       </div>
     </div>
 
+    <!-- Chatbox section -->
+    <div class="chat-open-button" id="chat-open-button"
+      onclick="openChat()"></div>
+
+    <div id="overall-chat-box">
+
+      <!-- Minimize Chat -->
+      <button class="chat-close-button" onclick="closeChat()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16"
+          viewBox="0 0 512 512"><path fill="white"
+            d="M439 7c9.4-9.4 24.6-9.4 33.9 0l32 32c9.4 9.4 9.4 24.6 0 33.9l-87 87 39 39c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8H296c-13.3 0-24-10.7-24-24V72c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l39 39L439 7zM72 272H216c13.3 0 24 10.7 24 24V440c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-39-39L73 505c-9.4 9.4-24.6 9.4-33.9 0L7 473c-9.4-9.4-9.4-24.6 0-33.9l87-87L55 313c-6.9-6.9-8.9-17.2-5.2-26.2s12.5-14.8 22.2-14.8z" /></svg>
+      </button>
+
+      <!-- Message Area -->
+      <div class="message-area" id="msgArea">
+
+        <!-- <div class="bubble">
+          <p class="hello">Hello こんにちは!</p>
+        </div> -->
+
+        <p class="text-bubble bot">
+          <span class="text-cont bot">Bot test</span>
+        </p>
+
+        <p class="text-bubble user">
+          <span class="text-cont user">User test</span>
+        </p>
+
+        <p class="text-bubble bot">
+          <span class="text-cont bot loading">
+            <div class="dot-flashing"></div>
+          </span>
+        </p>
+
+      </div>
+
+      <!-- User input area -->
+      <div class="chat-bar-input-block">
+        <input class="input-box"
+          id="userInput"
+          type="text"
+          placeholder="Ask me anything!!!" />
+
+        <svg
+          id="sendIcon"
+          onclick="handleSend()"
+          class="send-icon"
+          height="32"
+          width="32"
+          viewBox="0 0 512 512"><path
+            fill="white"
+            d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z" /></svg>
+      </div>
+
+    </div>
+
     <script src="src/assets/js/responsive-intro-text.js"></script>
+    <script src="src/assets/js/chat.js"></script>
   </body>
 </html>
