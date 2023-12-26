@@ -8,10 +8,9 @@ div.skill-area {
     flex: 1;
     padding: 0 20px;
     margin: 0 5px;    
-    background-color: transparent;
+    background-color: var(--accent-color);
 
     h1{
-        
         font-size: 32px;
     }
 }

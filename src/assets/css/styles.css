@@ -9,7 +9,9 @@
 }
 
 :root {
-  --primary-color: #ffffe3;
+  --black: #000000;
+  --primary-color: white; /* #ffffe3; */
+  --accent-color: #e0e0c7;
 }
 
 svg path {
@@ -69,7 +71,160 @@ div.main-content {
   flex-wrap: wrap;
 }
 
-div.bio {
+div.first-layer {
+  height: 500px;
+  display: flex;
+  margin: 20px;
+  flex: 1;
+  /* padding: 20px; */
+  background-color: #000000;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.fl-headshot-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: justify;
+  text-justify: inter-word;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.fl-headshot-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: 1000;
+  transition: all 0.5s ease-in-out;
+}
+
+.intro-text {
+  font-weight: bolder;
+  color: #181818;
+  flex: 1;
+  max-width: 0%;
+  max-width: 100%;
+  a {
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.fl-headshot-container:hover {
+  img {
+    opacity: 0.4;
+
+  }
+
+  p {
+    transition: all 0.5s ease-in-out;
+    color: #353535;
+  }
+
+  a {
+    text-shadow: 5px 3px rgb(53, 53, 53);
+    transition: all 0.2s ease-in-out;
+    transform: translateY(-0.4em);
+  }
+
+  a#svk {
+    transition-delay: 50ms;
+    color: #fd4608;
+  }
+  a#next {
+    transition-delay: 100ms;
+    color: #67dbfb;
+  }
+  a#solid {
+    transition-delay: 150ms;
+    color: #437ec5;
+  }
+  a#stl {
+    transition-delay: 200ms;
+    color: #ff5151;
+  }
+  a#dj {
+    transition-delay: 250ms;
+    color: #207454;
+  }
+
+  a#gcp-g {
+    transition-delay: 300ms;
+    color: #fbbe0d;
+  }
+  a#gcp-c {
+    transition-delay: 350ms;
+    color: #eb493b;
+  }
+  a#gcp-p {
+    transition-delay: 400ms;
+    color: #4889f4;
+  }
+  a#az {
+    transition-delay: 450ms;
+    color: #088dd7;
+  }
+
+  a#pm {
+    transition-delay: 500ms;
+    color: #f76935;
+  }
+  a#jm {
+    transition-delay: 550ms;
+    color: #c41f34;
+  }
+  a#k6 {
+    transition-delay: 600ms;
+    color: #8169ff;
+  }
+
+  a#w3 {
+    transition-delay: 650ms;
+    color: #04aa6d;
+  }
+  a#mdn {
+    transition-delay: 700ms;
+    color: #fc7b1d;
+  }
+  a#gpt {
+    transition-delay: 750ms;
+    color: #74aa9c;
+  }
+
+  a#html {
+    transition-delay: 800ms;
+    color: #f16a30;
+  }
+  a#css {
+    transition-delay: 850ms;
+    color: #39acdd;
+  }
+  a#js {
+    transition-delay: 900ms;
+    color: #f3dd55;
+  }
+
+  a#github {
+    transition-delay: 950ms;
+    color: #f16a30;
+  }
+}
+
+/* Chat area */
+
+div.second-layer {
   height: 450px;
   display: flex;
   margin: 20px;
@@ -291,4 +446,10 @@ div.chat {
   svg:hover {
     transform: translateY(-0.4em);
   }
+}
+
+@media (hover: hover) {
+}
+
+@media (hover: none) {
 }
