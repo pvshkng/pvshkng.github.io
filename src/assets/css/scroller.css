@@ -1,22 +1,22 @@
 @import url("global.css");
 
-::-webkit-scrollbar {
+.message-area::-webkit-scrollbar {
   width: 10px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+.message-area::-webkit-scrollbar-track {
   background: #505050;
   border-radius: 50px;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+.message-area::-webkit-scrollbar-thumb {
   background: #383838;
   border-radius: 50px;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+.message-area::-webkit-scrollbar-thumb:hover {
   background: #2c2c2c;
 }

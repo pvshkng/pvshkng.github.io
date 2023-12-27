@@ -239,7 +239,7 @@ export default function Chatbox() {
 
           <p class="text-bubble bot">
             <span class="text-cont bot">
-              Hello! I'm Puvish. Ask my anything!
+              Hello! My name is Puvish. Ask me anything!
             </span>
           </p>
         </div>
