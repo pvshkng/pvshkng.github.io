@@ -3,8 +3,6 @@ import solidLogo from "./assets/solid.svg";
 import viteLogo from "/vite.svg";
 //import "./App.css";
 
-import "./assets/css/chat.css";
-import "./assets/css/scroller.css";
 import "./assets/css/skills.css";
 import "./assets/css/slider.css";
 
