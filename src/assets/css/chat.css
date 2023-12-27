@@ -1,0 +1,173 @@
+@import url("global.css");
+
+:root {
+    --chat-font-size: 14px;
+  }
+
+#overall-chat-box {
+  overflow: hidden;
+  position: relative;
+  z-index: 2000;
+  display: block;
+  height: 0; /* 500px */
+  width: 0; /* 250px */
+  border-radius: 10px;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+
+  color: white;
+
+  background-color: #444444;
+  box-shadow: 5px 5px #00000080;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.chatbox-activated {
+  height: 500px !important;
+  width: 250px !important;
+}
+
+.chat-open-button {
+  background-color: #555;
+  /* border: solid 3px #7c7c7c; */
+  box-shadow: 5px 5px #00000080;
+
+  color: white;
+  padding: 30px;
+
+  cursor: pointer;
+  opacity: 0.8;
+
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+
+  border-radius: 50%;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.chat-close-button {
+  display: inherit;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Where user types */
+div.chat-bar-input-block {
+  position: absolute;
+  bottom: 0;
+  margin-top: auto;
+  display: flex;
+  width: 100%;
+
+  padding-top: "10px";
+  padding-bottom: "10px";
+  padding: 10px;
+
+  float: left;
+  box-sizing: border-box;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+input.input-box {
+
+  word-break: break-all;
+  font-size: var(--chat-font-size);
+
+  height: 100%;
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+
+  border-radius: 10px;
+  padding: 10px;
+  
+  color: #000;
+  background-color: var(--primary-color);
+  outline: none;
+  vertical-align: middle;
+}
+
+svg.send-icon {
+  margin: 0 5px 0 10px;
+  cursor: pointer;
+}
+
+/* Message history section */
+div.message-area {
+  margin-top: 40px;
+  height: 400px; /* 420 */
+  overflow: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  /* background-color: aqua; */
+}
+
+p.text-bubble {
+  word-break: break-all;
+  font-size: var(--chat-font-size);
+  color: black;
+  &.user {
+    text-align: right;
+    clear: both;
+  }
+  &.bot {
+    text-align: left;
+    clear: none;
+  }
+}
+
+.text-cont {
+  position: relative;
+  line-height: 1.5em;
+  display: inline-block;
+  max-width: 70%;
+
+  margin: 5px 10px 5px 10px;
+  transition: floatup 0.5s forwards;
+
+  &.user {
+    border-radius: 15px 15px 0px 15px;
+    padding: 10px;
+    background: #ffffff;
+  }
+
+  &.bot {
+    border-radius: 15px 15px 15px 0px;
+    padding: 10px;
+    background: #adadad;
+  }
+}
+
+.loader {
+  display: inline-block;
+  width: 30px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  background-size: calc(100% / 3) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
+}
