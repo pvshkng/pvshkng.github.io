@@ -5,7 +5,7 @@ import "../css/scroller.css";
 
 const version = "v1beta";
 const model = "gemini-pro";
-const url = `https://generativelanguage.googleapis.com/${version}/models/${model}:generateContent?key=${import.meta.env.GEMINI_API_KEY}`;
+const url = `https://generativelanguage.googleapis.com/${version}/models/${model}:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`;
 
 
 const safetySetting = [
@@ -140,7 +140,7 @@ export default function Chatbox() {
           role: "user",
           parts: [
             {
-              text: import.meta.env.SYSTEM_MESSAGE,
+              text: import.meta.env.VITE_SYSTEM_MESSAGE,
             },
           ],
         },
