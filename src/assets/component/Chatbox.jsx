@@ -1,10 +1,11 @@
 import { createSignal, onCleanup, createEffect } from "solid-js";
-import { GEMINI_API_KEY, SYSTEM_MESSAGE } from "../js/config/config";
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const SYSTEM_MESSAGE = process.env.SYSTEM_MESSAGE;
 
 const version = "v1beta";
 const model = "gemini-pro";
 const url = `https://generativelanguage.googleapis.com/${version}/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
-
 
 const safetySetting = [
   {
@@ -238,6 +239,12 @@ export default function Chatbox() {
           <p class="text-bubble bot">
             <span class="text-cont bot">
               Hello! I'm Puvish. Ask my anything!
+            </span>
+          </p>
+          <p class="text-bubble bot">
+            <span class="text-cont bot">
+              GEMINI_API_KEY = {GEMINI_API_KEY}
+              SYSTEM_MESSAGE = {SYSTEM_MESSAGE}
             </span>
           </p>
         </div>
