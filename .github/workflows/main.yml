@@ -21,8 +21,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-  SYSTEM_MESSAGE: ${{ secrets.SYSTEM_MESSAGE }}
+  GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+  SYSTEM_MESSAGE: ${{ secrets.VITE_SYSTEM_MESSAGE }}
 
 jobs:
   # Single deploy job since we're just deploying
