@@ -1,11 +1,11 @@
 import { createSignal, onCleanup, createEffect } from "solid-js";
-import { GEMINI_API_KEY, SYSTEM_MESSAGE } from "../js/config/config";
+
 import "../css/chat.css";
 import "../css/scroller.css";
 
 const version = "v1beta";
 const model = "gemini-pro";
-const url = `https://generativelanguage.googleapis.com/${version}/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
+const url = `https://generativelanguage.googleapis.com/${version}/models/${model}:generateContent?key=${import.meta.env.GEMINI_API_KEY}`;
 
 
 const safetySetting = [
@@ -140,7 +140,7 @@ export default function Chatbox() {
           role: "user",
           parts: [
             {
-              text: SYSTEM_MESSAGE,
+              text: import.meta.env.SYSTEM_MESSAGE,
             },
           ],
         },
