@@ -1,7 +1,7 @@
 import { createSignal, onCleanup, createEffect } from "solid-js";
 import { GEMINI_API_KEY, SYSTEM_MESSAGE } from "../js/config/config";
-import "./assets/css/chat.css";
-import "./assets/css/scroller.css";
+import "../css/chat.css";
+import "../css/scroller.css";
 
 const version = "v1beta";
 const model = "gemini-pro";
