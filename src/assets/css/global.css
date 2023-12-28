@@ -1,16 +1,9 @@
 @font-face {
-  font-family: "SatoshiRegular";
-  src: url("src/assets/font/Satoshi-Regular.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "SatoshiBold";
-  src: url("src/assets/font/Satoshi-Bold.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "SatoshiMedium";
-  src: url("src/assets/font/Satoshi-Medium.otf") format("opentype");
+  font-family: "Satoshi";
+  src: url("../font/Satoshi-Regular.eot");
+  src: url("../font/Satoshi-Regular.woff") format("woff"), 
+       url("../font/Satoshi-Regular.ttf")  format("truetype"), 
+       
 }
 
 :root {
@@ -24,10 +17,10 @@ svg path {
 }
 
 body {
-  font-family: "SatoshiBold", sans-serif;
+  font-family: "Satoshi", sans-serif;
   background-color: var(--primary-color);
   margin: 0;
-  display: block;
+  display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
@@ -35,7 +28,7 @@ body {
 p.nav-header {
   margin: 10px 10px;
   font-size: 40px;
-  font-weight: 900;
+  font-weight: bolder;
   margin-right: auto;
   transition: all 0.2s ease-in-out;
 }
@@ -71,8 +64,11 @@ div.info-icon-container {
 }
 
 div.main-content {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  flex: 1;
 }
 
 div.first-layer {
@@ -82,9 +78,9 @@ div.first-layer {
   flex: 1;
   /* padding: 20px; */
   background-color: #000000;
-
   justify-content: center;
   align-items: center;
+  vertical-align: middle;
 }
 
 .fl-headshot-container {
@@ -117,12 +113,11 @@ div.first-layer {
 
 .intro-text {
   flex: 1;
-/*   max-width: 0%;
-  max-width: 100%; */
+
 
   p, span {
     color: #181818;
-    /* font-weight: bolder; */
+    font-weight: bolder;
     transition: all 0.5s ease-in-out;
   }
 
