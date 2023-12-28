@@ -30,6 +30,7 @@
 }
 
 .chat-open-button {
+  z-index: 1001;
   background-color: #555;
   /* border: solid 3px #7c7c7c; */
   box-shadow: 5px 5px #00000080;
