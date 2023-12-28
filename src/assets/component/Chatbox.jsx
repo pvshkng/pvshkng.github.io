@@ -3,11 +3,6 @@ import { createSignal, onCleanup, createEffect } from "solid-js";
 import "../css/chat.css";
 import "../css/scroller.css";
 
-const version = "v1beta";
-const model = "gemini-pro";
-const url = `https://generativelanguage.googleapis.com/${version}/models/${model}:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`;
-
-
 const safetySetting = [
   {
     category: "HARM_CATEGORY_HARASSMENT",
@@ -107,7 +102,8 @@ export default function Chatbox() {
         loadingElement.remove();
       }
 
-      insertBubble("bot", formatText(response));
+      //insertBubble("bot", formatText(response));
+      insertBubble("bot", response);
     }
   }
 
@@ -134,58 +130,48 @@ export default function Chatbox() {
   }
 
   async function getResponse(question) {
-    var body = {
-      contents: [
-        {
-          role: "user",
-          parts: [
-            {
-              text: import.meta.env.VITE_SYSTEM_MESSAGE,
-            },
-          ],
-        },
-        {
-          role: "model",
-          parts: [
-            {
-              text: "Understood",
-            },
-          ],
-        },
-        {
-          role: "user",
-          parts: [
-            {
-              text: question,
-            },
-          ],
-        },
-      ],
-      generationConfig: {
-        temperature: 0.9,
-        topK: 1,
-        topP: 1,
-        maxOutputTokens: 2048,
-        stopSequences: [],
-      },
-      safetySettings: safetySetting,
-    };
+    var raw = JSON.stringify({ question: question });
 
     var requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      headers: {
+        Accept: 'application/json',
+        "Content-Type": "application/json",
+
+      },
+      body: raw,
+      redirect: "follow",
     };
 
-    try {
-      const response = await fetch(url, requestOptions);
-      const data = await response.json();
+    const response = await fetch(
+      "https://pvshkng-github-io-api.vercel.app/api/chat",
+      requestOptions
+    )
 
-      if (data && data.candidates && data.candidates.length > 0) {
-        const answer = await data.candidates[0]["content"]["parts"][0]["text"];
+    if (response.answer) {
+      console.log(response.answer)
+      return response.answer
+    } else {
+      console.error("Unexpected response structure:", response);
+      const answer = "Sorry, I couldn't understand that.";
+      return answer;
+    }
+
+    /*    try {
+      const response = await fetch(
+        "https://pvshkng-github-io-api.vercel.app/api/chat",
+        requestOptions
+      ); */
+
+    //const data = await response.json();
+    /* console.log(JSON.stringify(response)) */
+    //console.log(JSON.stringify(data));
+
+    /*       if (response && response.answer) {
+        const answer = await response.answer;
         return answer;
       } else {
-        console.error("Unexpected response structure:", data);
+        console.error("Unexpected response structure:", response);
         const answer = "Sorry, I couldn't understand that.";
         return answer;
       }
@@ -193,7 +179,7 @@ export default function Chatbox() {
       console.error("Error fetching response:", error);
       const answer = "Sorry, there was an error processing your request.";
       return answer;
-    }
+    } */
   }
 
   function formatText(input) {

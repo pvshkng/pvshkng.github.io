@@ -39,9 +39,6 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-        env:
-          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
-          VITE_SYSTEM_MESSAGE: ${{ secrets.VITE_SYSTEM_MESSAGE }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
