@@ -135,51 +135,26 @@ export default function Chatbox() {
     var requestOptions = {
       method: "POST",
       headers: {
-        Accept: 'application/json',
         "Content-Type": "application/json",
-
       },
       body: raw,
       redirect: "follow",
     };
 
-    const response = await fetch(
+    const temp = await fetch(
       "https://pvshkng-github-io-api.vercel.app/api/chat",
       requestOptions
-    )
+    );
+    
+    const response = await temp.json();
 
     if (response.answer) {
-      console.log(response.answer)
-      return response.answer
+      return response.answer;
     } else {
       console.error("Unexpected response structure:", response);
       const answer = "Sorry, I couldn't understand that.";
       return answer;
     }
-
-    /*    try {
-      const response = await fetch(
-        "https://pvshkng-github-io-api.vercel.app/api/chat",
-        requestOptions
-      ); */
-
-    //const data = await response.json();
-    /* console.log(JSON.stringify(response)) */
-    //console.log(JSON.stringify(data));
-
-    /*       if (response && response.answer) {
-        const answer = await response.answer;
-        return answer;
-      } else {
-        console.error("Unexpected response structure:", response);
-        const answer = "Sorry, I couldn't understand that.";
-        return answer;
-      }
-    } catch (error) {
-      console.error("Error fetching response:", error);
-      const answer = "Sorry, there was an error processing your request.";
-      return answer;
-    } */
   }
 
   function formatText(input) {
