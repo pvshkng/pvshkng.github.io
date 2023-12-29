@@ -142,7 +142,7 @@ export default function Chatbox() {
     };
 
     const temp = await fetch(
-      "https://pvshkng-github-io-api.vercel.app/api/chat",
+      "https://pvshkng-github-io.vercel.app/api/chat",
       requestOptions
     );
     
